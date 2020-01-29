@@ -109,7 +109,7 @@ $(document).ready(function() {
     if (fivePMGet !== null) {
         $("#17").val(fivePMGet);
     }
-    let date = moment().format("MMMM-Do-YYYY hh:mm A");
+    let date = moment().format("MMMM Do YYYY hh:mm A");
     $(".date-container").text(date);
     let present = moment().hour();
     let startTime = 9;
@@ -120,7 +120,7 @@ $(document).ready(function() {
         for (let i = startTime; i <= endTime; i++) {
             let timeLoop = "#" + i;
             if (i < present) {
-                $(timeLoop).css("background-color","blue");
+                $(timeLoop).css("background-color","DeepSkyBlue");
             } else if (i > present) {
                 $(timeLoop).css("background-color","aquamarine");
             }
