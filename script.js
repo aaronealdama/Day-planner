@@ -2,11 +2,11 @@
 
 $(".save-9").on("click", function() {
      localStorage.setItem("9AM", $("#9").val());
-})
+}) // when save button is clicked sets local storage to a specific time
 $(".delete-9").on("click", function() {
     localStorage.setItem("9AM", "");
     $("#9").val("");
-})
+}) // when complete button is clicked local storage is set to blank
 
 $(".save-10").on("click", function() {
     localStorage.setItem("10AM", $("#10").val());
@@ -73,10 +73,10 @@ $(".delete-5").on("click", function() {
 })
 
 $(document).ready(function() {
-    let nineAMGet = localStorage.getItem("9AM");
+    let nineAMGet = localStorage.getItem("9AM"); // local storage variable containing local storage data
     if (nineAMGet !== null) {
         $("#9").val(nineAMGet);
-    }
+    } // if local storage variable is not equal to null runs code that sets the value of the selected input field to local storage variable
     let tenAMGet = localStorage.getItem("10AM");
     if (tenAMGet !== null) {
         $("#10").val(tenAMGet);
@@ -110,23 +110,51 @@ $(document).ready(function() {
         $("#17").val(fivePMGet);
     }
     let date = moment().format("MMMM Do YYYY hh:mm A");
-    $(".date-container").text(date);
-    let present = moment().hour();
+    $(".date-container").text(date); // sets date variable text with moment format to date container
+    let present = moment().hour(); // present hour value
     let startTime = 9;
     let endTime = 17;
     if (present >= startTime && present <= endTime) {
-        let presentTime = "#" + present;
+        let presentTime = "#" + present; // variable concatenating # and present variable
         $(presentTime).css("background-color", "lime")
         for (let i = startTime; i <= endTime; i++) {
-            let timeLoop = "#" + i;
+            let timeLoop = "#" + i; // variable concatenating # and i value that is 
+            // ranged between start and end times
             if (i < present) {
                 $(timeLoop).css("background-color","DeepSkyBlue");
             } else if (i > present) {
                 $(timeLoop).css("background-color","aquamarine");
             }
-        }
+        } // if present hour is between start and end times run a for loop
+        // that concatonates a # with i and sets selected input fields and
+        // change the background color based on its relative value compared to the present hour
+    } else {
+        $("input").css("background-color","aquamarine")
+    } // if present is not between start and end times change input background
+    // colors to aquamarine to indicate events for the next day
+
+    setInterval(function() {
+        let date = moment().format("MMMM Do YYYY hh:mm A");
+    $(".date-container").text(date); 
+    let present = moment().hour(); 
+    let startTime = 9;
+    let endTime = 17;
+    if (present >= startTime && present <= endTime) {
+        let presentTime = "#" + present; 
+        $(presentTime).css("background-color", "lime")
+        for (let i = startTime; i <= endTime; i++) {
+            let timeLoop = "#" + i; 
+            if (i < present) {
+                $(timeLoop).css("background-color","DeepSkyBlue");
+            } else if (i > present) {
+                $(timeLoop).css("background-color","aquamarine");
+            }
+        } 
     } else {
         $("input").css("background-color","aquamarine")
     }
+    }, 60000) // set interval function ensures the dayplanner is updated every minute
+    // the user stays on the site
 })
+
 

@@ -26,10 +26,11 @@ button {
     width: 100vw;
 }
 
+
+
 @media only screen and (max-width: 600px) {
     .jumbotron {
         width: 100vw;
-        text-align: left;
     }
 
     input {
