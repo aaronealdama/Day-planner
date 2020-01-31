@@ -1,43 +1,37 @@
-
 .activity-container {
-    margin: 30px;
+  margin: 30px;
 }
 
 input {
-    height: 40px;
-    width: 500px;
-    border-radius: 20px;
-    padding: 0px;
+  height: 40px;
+  width: 500px;
+  border-radius: 20px;
+  padding: 0px;
 }
 
 span {
-    margin: 10px;
-    font-size: 30px;
+  margin: 10px;
+  font-size: 30px;
 }
 
 button {
-    margin: 10px;
-    border-radius: 20px;
+  margin: 10px;
+  border-radius: 20px;
 }
 
 .jumbotron {
-    background-color: teal;
-    color: white;
-    width: 100vw;
+  background-color: teal;
+  color: white;
+  width: 100vw;
 }
-
-
 
 @media only screen and (max-width: 600px) {
-    .jumbotron {
-        width: 100vw;
-    }
+  .jumbotron {
+    width: 110vw;
+  }
 
-    input {
-        width: 60vw;
-        padding: 0;
-    }
+  input {
+    width: 60vw;
+    padding: 0;
+  }
 }
-
-
-
